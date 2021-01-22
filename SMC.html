@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Sparse Matrix Calculator in Java</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+				<!-- Note: The "styleN" class below should match that of the banner element. -->
+					<header id="header" class="alt style2">
+						<a href="index.html" class="logo"><strong>Joshua</strong> <span>Rony</span></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="MTS.html">Multi-Threaded HTTP Server in C</a></li>
+							<li><a href="SMC.html">Sparse Matrix Calculator in Java</a></li>
+							<li><a href="PA.html">Prim's Algorithm in Java</a></li>
+						</ul>
+						<ul class="actions stacked">
+							<li><a href="#" class="button primary fit">Get Started</a></li>
+						</ul>
+					</nav>
+
+				<!-- Banner -->
+				<!-- Note: The "styleN" class below should match that of the header element. -->
+					<section id="banner" class="style2">
+						<div class="inner">
+							<span class="image">
+								<img src="images/pic07.jpg" alt="" />
+							</span>
+							<header class="major">
+								<h1>Sparse Matrix Calculator in Java</h1>
+							</header>
+							<div class="content">
+								<p>When you have matrix operations to perform ... <br />
+								time to take advantage of those zeroes.</p>
+							</div>
+						</div>
+					</section>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- One -->
+							<section id="one">
+								<div class="inner">
+									<header class="major">
+										<h2>How often do we perform matrix operations in computer science?  Quite often.</h2>
+									</header>
+									<p>Matrix operations are such a common necessity in the field of computer science, it's nice
+										to have an application that will easily perform most of the operations one could think of
+										involving matrices.  This application will transpose a matrix, multiply a matrix by a scalar, 
+										subtract two matrices, add two matrices, and multiply two matrices.  It accomplishes these tasks quite efficiently by
+										taking advantage of the "sparseness" of a matrix, meaning it leverages the fact that when
+										a matrix has 0's in it, the calculations simplify because that 0 can of course cause entire
+										rows to simply become 0.  Please refer to the bottom of this page and click on the "VIEW REPOSITORY"
+										button to see a full README file that will provide instructions on how to use the application.
+									</p>
+								</div>
+							</section>
+
+						<!-- Two -->
+							<section id="two" class="spotlights">
+								<section>
+									<p class="aligncenter">
+										<img src="images/ChangeEntryPic.png" alt="centered image" width="600" height="770"/>
+									</p>
+									<div class="content">
+										<div class="inner">
+											<header class="major">
+												<h3>Entering Data Into a Matrix</h3>
+											</header>
+											<p>The crux of this entire application is the "Change Entry" function.  This function
+												is called both from within and from outside of the file in which it lives.  Getting
+												this function right was absolutely crucial to the operation of the program as a whole.
+												This application stores the matrices in the form of an array of linked lists.  If a data element 
+												included in the input file is a 0, this data element is simply not entered into the matrix. 
+												Each index in the array houses a linked list, and that index also represents a row number.
+												The linked list stored at that index represents all the elements present in that row (as
+												long as that element was not a 0 to begin with).  Because 0's are not stored, this means 
+												that spacial expense decreases as the sparseness of the matrix increases.  This application only
+												functions correctly for square matrices of equal dimension (only two matrices of dimension
+												"n x n" can be operated on by this application).  Because we are not storing 0's in the application
+												in order to save time and space, this means that our algorithms for performing these
+												matrix operations must be more complicated than in the case of your standard array based
+												implementations.  The Matrix class contains a nested inner class called "Entry" that defines both
+												a "value" field of type double, and a column field of type int.  It is this column field that allows
+												other functions in the Matrix class to determine the column number of an entry.
+											</p>
+											<ul class="actions">
+												<li><a href="https://github.com/jrony149/Matrix-Calculator/blob/master/Matrix.java" class="button">View the full file</a></li>
+											</ul>
+										</div>
+									</div>
+								</section>
+								<section>
+									<a class="image">
+										<img src="images/LinkedListPic.png" alt="" data-position="top center" />
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major">
+												<h3>Using a linked list to store "object" types.</h3>
+											</header>
+											<p>Similar to my implementation of Prim's algorithm, this matrix calculator implementation
+												uses a linked list to store its data entries.  Because the entries consist of more than one 
+											   quantity, i.e., the entry value itself and the column number, the linked list must take objects,
+											   i.e., two-tuples, as its data entries.</p>
+											<ul class="actions">
+												<li><a href="https://github.com/jrony149/Matrix-Calculator/blob/master/List.java" class="button">View the full file</a></li>
+											</ul>
+										</div>
+									</div>
+								</section>
+							
+							<!-- Three -->
+							<section id="three">
+								<div class="inner">
+									<header class="major">
+										<h2>Synopsis</h2>
+									</header>
+									<p>This application is a matrix calculator that is capable of performing a number of operations
+										on matrices including multiplying a matrix by a scalar, adding two matrices, subtracting two matrices,
+										and multiplying two matrices together.  Its spacial and temporal complexity are optimized by 
+										taking advantage of the sparsity of a matrix.  0 entries are not stored, and calculations
+										that would have simply yielded a 0 in the end are simply not performed.  The worst case runtime for each of
+										the functions featured in this application are as follows:<br><br>
+										For any two matrices A,B let n denote the number of rows in A, let a denote the number of
+										non-zero entries in A, and let b denote the number of non-zero entries in B.<br><br>
+
+										To multiply A by a scalar: &#920(n + a)<br>
+										To transpose a matrix A: &#920(n + a)<br>
+										To add matrices A and B: &#920(n + a + b)<br>
+										To subtract matrices A and B: &#920(n + a + b)<br>
+										To multiply two matrices A and B: &#920(n<sup>2</sup> + (a * b))
+
+									</p>
+									<ul class="actions">
+										<li><a href="https://github.com/jrony149/Matrix-Calculator" class="button next">View the repository</a></li>
+									</ul>
+								</div>
+							</section>
+
+					</div>
+
+				<!-- Contact -->
+					
+							<section class="split">
+								<section>
+									<div class="contact-method">
+										<span class="icon solid alt fa-envelope"></span>
+										<h3>Email</h3>
+										<a href="mailto:jrony@ucsc.edu">jrony@ucsc.edu</a>
+									</div>
+								</section>
+								
+							</section>
+						</div>
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<l><a href="https://github.com/jrony149" class="icon brands alt fa-github"><span class="label">GitHub</span></a></>
+								<li><a href="https://linkedin.com/in/joshua-rony" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
