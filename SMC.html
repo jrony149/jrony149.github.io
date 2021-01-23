@@ -141,7 +141,7 @@
 										on matrices including multiplying a matrix by a scalar, adding two matrices, subtracting two matrices,
 										and multiplying two matrices together.  Its spacial and temporal complexity are optimized by 
 										taking advantage of the sparsity of a matrix.  0 entries are not stored, and calculations
-										that would have simply yielded a 0 in the end are simply not performed.  The worst case runtime for each of
+										that would have yielded a 0 in the end are simply not performed.  The worst case runtime for each of
 										the functions featured in this application are as follows:<br><br>
 										For any two matrices A,B let n denote the number of rows in A, let a denote the number of
 										non-zero entries in A, and let b denote the number of non-zero entries in B.<br><br>
@@ -149,7 +149,7 @@
 										To multiply A by a scalar: &#920(n + a)<br>
 										To transpose a matrix A: &#920(n + a)<br>
 										To add matrices A and B: &#920(n + a + b)<br>
-										To subtract matrices A and B: &#920(n + a + b)<br>
+										To subtract matrix B from matrix A: &#920(n + a + b)<br>
 										To multiply two matrices A and B: &#920(n<sup>2</sup> + (a * b))
 
 									</p>
