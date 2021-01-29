@@ -169,7 +169,7 @@
 											</header>
 											<p>In the top-most picture, the 'serverData' struct is depicted.  This struct contains the necessary data
 												fields for the health check function to supply to the hcHelper function, i.e., the health check threads.
-												In the second picture from the top, a section of code form the main function, i.e., the main thread, is depicted.
+												In the second picture from the top, a section of code from the main function, i.e., the main thread, is depicted.
 												In this code, an array of serverData structs (one for each active server) is created and initialized.  Each 'portNumber' of each serverData struct 
 												field is populated with the port number of an active server, supplied from the command line, of course.
 												The other fields are initialized to 0.
@@ -217,11 +217,11 @@
 												The serverPortSetter function's algorithm essentially functions as follows:<br \>
 												It iterates through the serverStruct linked list until it finds the first server that is not marked as down
 												(servers are marked as down by setting a 'flag' variable to 1 if it is determined that they have not responded to a health
-												check request).  The algorithm keeps keeps track of the total number of requests serviced of each server as it iterates through the list,
+												check request).  The algorithm keeps track of the total number of requests serviced by each server as it iterates through the list,
 												and keeps a running record of the minimum of all totals out of all active servers.
 												When the algorithm concludes, it sets the 'globalServerPort' to the port number associated with the server
 												that has been determined to have serviced the lowest number of requests, and it is this port number
-												that all load balancer worker threads will send their requests to.<br \>
+												to which all load balancer worker threads will send their requests.<br \>
 
 											</p>
 											<ul class="actions">
