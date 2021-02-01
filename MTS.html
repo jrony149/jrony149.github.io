@@ -194,7 +194,7 @@
 												simultaneously.  Also, if thread "a" is writing to file "x" and along comes thread "b" that wants 
 												to read from or write to file "y", this is perfectly fine as well.  This doesn't present
 												a potential race condition because there are two different files being accessed in this situation.<br \><br \>
-												In the pictures to the right of this text, the PUT case (the case in which clients are trying to
+												In the pictures to the left of this text, the PUT case (the case in which clients are trying to
 												write to a file) is being handled.  In lines 7 - 15 in the topmost picture, file permissions are 
 												being checked.  As long as the file's permission status permits access, the next step will be taken,
 												which is to begin the "enqueue" code block.  The lock is set, and the while loop's conditional statement
