@@ -192,7 +192,7 @@
 												"b" that wants to also read from file "x", this doesn't present a potential race condition, so 
 												we don't care.  It's perfectly fine to let both thread "a" and thread "b" read from file "x" 
 												simultaneously.  Also, if thread "a" is writing to file "x" and along comes thread "b" that wants 
-												to read from or write to thread "y", this is perfectly fine as well.  This doesn't present
+												to read from or write to file "y", this is perfectly fine as well.  This doesn't present
 												a potential race condition because there are two different files being accessed in this situation.<br \><br \>
 												In the pictures to the right of this text, the PUT case (the case in which clients are trying to
 												write to a file) is being handled.  In lines 7 - 15 in the topmost picture, file permissions are 
