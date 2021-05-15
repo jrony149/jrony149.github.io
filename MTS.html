@@ -139,8 +139,8 @@
 												included in the overall header depending on what type of request is being parsed (PUT, GET, etc).  For example, if the 
 												request is a "PUT" (write) request, there
 												must be a "Content-Length" header specifying the length of the incoming message body or file.  As mentioned, the header
-												has a format that must be adhered to.  This format is one of "Key-Value".  For example, the "Content-Length" header, if the 
-												incoming file had content length 67 bytes, should look like the following: <br \><br \>
+												has a format that must be adhered to.  This format is one of "Key-Value".  For example, take the "Content-Length" header. If the 
+												incoming file had content length 67 bytes, the "Content-Length" header would look like the following: <br \><br \>
 												"Content-Length: 67" <br \><br \>
 												So, our task in "parsing the header" is really to incrementally make our way through the entire header, checking it
 												not only for structural deformities, but also for the presence of particular sub-headers that should be accounted for
