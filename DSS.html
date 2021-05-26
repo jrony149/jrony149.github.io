@@ -146,11 +146,9 @@
                                                 As mentioned above, there were two ways that I was aware of at the time of building this application
                                                 in terms of how to correctly route requests within the system (across the ring).  The first I wrote a bit about above,
                                                 and I outlined how it offered single-hop routing, but poor scalability.  Well, the Chord protocol offers kind of a happy medium;
-                                                i.e., good scalability as well as decent routing times.  This is because it offers log<sub>2</sub>(m) hops in worst case (where "m")
-                                                represents the number of positions on the ring) 
-                                                routing as well as log<sub>2</sub>(n) (where "n" represents the number of actual active real-life nodes) addresses being stored in the memory of each node.
-                                                How could "m" be different from "n", you ask?  That question will be answered when I talk about virtual nodes.  
-                                                Anyway, this routing table that each node maintains with log<sub>2</sub>(m)
+                                                i.e., good scalability as well as decent routing times.  This is because it offers log<sub>2</sub>(n) hops in worst case routing 
+                                                as well as log<sub>2</sub>(n) addresses being stored in memory on each node (where "n" represents the number of positions on the ring).  
+                                                This routing table that each node maintains with log<sub>2</sub>(n)
                                                 addresses is traditionally called a "finger table" because conceptually, each node is reaching out (like fingers) 
                                                 across the ring to acquire the members of its finger table.  You can see these "fingers" and the
                                                 "finger tables" of the nodes illustrated in the crude graph paper sketches to the left of this text.  I tried my best to color code
@@ -533,20 +531,20 @@
                                         it causally consistent, but I wanted to, for this iteration of the application simply focus on implementing the 
                                         partial chord protocol because I saw it as a definite improvement over the non-replicated version of the application 
                                         we built in university.  The version that we built in university implemented a hash ring to carry out its distributed hashing, 
-                                        but it forced each node to store the address of every other node in the ring in memory, and this not as scalable as what 
+                                        but it forced each node to store the address of every other node in the ring in memory, and that method is not as scalable as what 
                                         has been done here.  What has been done here is not as scalable as "full" Chord would be, of course, but "full" Chord would 
-                                        also have a stabilization algorithm running in the background, and would not allow group joins/departures to/from the system. 
+                                        also require a stabilization algorithm to be running in the background, and would not allow group joins/departures to/from the system. 
                                         I did not want to focus my energies on implementing full Chord for this application - I simply wanted to gain a slight improvement 
                                         over the capstone project that I worked on in school, and save my energies for the replication process which I know to 
                                         be somewhat difficult.  Truth be told, I did not get to contribute anywhere near as much as I would have liked 
                                         to my capstone project, and this is because of my own shortcomings as well as being teamed with people who are 
                                         extremely capable and simply absorbed the majority of the workload.  I owe them a massive debt of gratitude for 
                                         teaching me so many Python tricks as well as explaining the concept of virtual nodes in a hash ring to me at a 
-                                        time when I was being swamped with work from other classes.  And as always, an unpayable debt to my friend Damien 
+                                        time when I was being swamped with work from other classes.  And as always, an unpayable debt to another very good friend 
                                         who coached me for the Distributed Systems class in general and introduced me to 90% of these concepts.  
                                         
                                         Anyway, I felt I owed it to myself to go through and write 
-                                        my own version of this application with an improvement (partial Chord) 
+                                        my own version of this application with a slight improvement (partial Chord) 
                                         just to make sure I truly understood the concepts.<br /><br />
 
                                         Thanks for taking the time to check this whole thing out, and you can view the full repository 
