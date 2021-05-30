@@ -174,7 +174,7 @@
                                                 hops.  However, in this application, nodes join the network collectively or not at all, and every node gets an entire picture of
                                                 the system with which to create its finger table.  After creating its finger table, the local node clears most of the mappings and other data
                                                 used to create the finger table, and so, while the full ring is generated for a short time on each node upon startup as well as in the event of a view change
-                                                (a view change simply being an instance in which one more nodes leave or join the system), that full ring is not maintained.  Rather, it is generated,
+                                                (a view change simply being an instance in which one or more nodes leave/join the system), that full ring is not maintained.  Rather, it is generated,
                                                 used to create the finger table, and then discarded.  You can see where this is happening in the "data_structure_clear()" function
                                                 which is featured in the fourth picture from the top on this page to the left of this text.  In true Chord, however, this would not be the case.  In true Chord, every node would have to
                                                 query its nearest neighbor with a time-to-live value included and decremented appropriately for each request message in order 
@@ -290,7 +290,7 @@
                                                 currently discussing falls between the position that is marked '10.10.0.7/ff347...' and the position that is marked '10.10.0.4/1d362...'. 
                                                 We can easily check to see if a key falls in this range, because it is unlike any other range on the ring being that it is the only range in which
                                                 the order of the sha1 hash results is reversed - meaning the node that is the clockwise neighbor of the local node actually has a 
-                                                sha1 hash result that is greater than its own.  If this is not the case, then we have two remaining possibilities.  The first of which
+                                                sha1 hash result that is less than its own.  If this is not the case, then we have two remaining possibilities.  The first of which
                                                 is if the key's sha1 hash result is less than the lowest hash id.  If it is, we simply send the request to the node's predecessor to start this 
                                                 process all over again.  The second is if the key's sha1 hash result is greater than the lowest hash id.  If this is the case, then 
                                                 the key and its data belong at the nearest clockwise neighbor (because we already know that the key's sha1 hash result is less than the nearest 
